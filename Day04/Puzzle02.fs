@@ -1,8 +1,5 @@
 module Puzzle02
-    
-let ContainsOnlyIncreasingDigits password =
-    let orderedPwd = password |> Array.sort
-    password = orderedPwd
+open Shared
 
 let ContainsAtLeastOneSetOfAnAdjacentDoubleNumber password =
     password
@@ -13,10 +10,3 @@ let ContainsAtLeastOneSetOfAnAdjacentDoubleNumber password =
 let IsPasswordValid password =
     let pwd = password.ToString().ToCharArray()
     ContainsOnlyIncreasingDigits pwd && ContainsAtLeastOneSetOfAnAdjacentDoubleNumber pwd
-
-let GeneratePossiblePasswords min max =
-    [|min..max|]
-
-let GeneratePossibleValidPasswords min max =
-    GeneratePossiblePasswords min max
-    |> Array.filter IsPasswordValid

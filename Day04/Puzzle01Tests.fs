@@ -2,6 +2,7 @@ namespace Day04
 
 open Microsoft.VisualStudio.TestTools.UnitTesting
 open Puzzle01
+open Shared
 
 [<TestClass>]
 type Puzzle01Tests () =
@@ -52,5 +53,5 @@ type Puzzle01Tests () =
     member this.CanGeneratePossibleValidPasswords () =
         let min = 372037
         let max = 905157
-        let validPossibilities = GeneratePossibleValidPasswords min max
+        let validPossibilities = GeneratePossibleValidPasswords IsPasswordValid min max
         Assert.AreEqual(481, validPossibilities.Length)
